@@ -1,0 +1,107 @@
+<section class="inner-intro bg bg-fixed bg-overlay-black-70" style="background-image:url(images/bg-3.jpg);">
+  <div class="container">
+     <div class="row intro-title text-center">
+           <div class="col-sm-12">
+        <div class="section-title"><h1 class="title text-white">Conversational AI</h1></div>
+           </div>
+           <div class="col-sm-12">
+             <ul class="page-breadcrumb">
+                <li><a href="#"><i class="fa fa-home"></i> Solutions</a> <i class="fa fa-angle-double-right"></i></li>
+                <li><span>Conversational AI</span> </li>
+             </ul>
+        </div>
+     </div>
+  </div>
+</section>
+
+<div class="container-fluid bluebar">
+    <div class="row">
+        <div class="col-md-11 col-md-offset-1">
+              <ul>
+    <li ><a href="enterprise-applications.html">Enterprise Applications </a></li>
+    <li class="active"><a href="conversational-ai.html">Conversational AI</a></li>
+    <li ><a href="smart-iot-solutions.html">Smart IOT </a></li>
+    <li ><a href="information-exchange.html">Information Exchange and Collaboration</a></li>
+ </ul>        </div>
+    </div>
+</div>
+  <section class="page-section-ptb pb-60"><div class="container">
+    <div class="row row-eq-height">  
+        <div class="col-md-8 col-md-offset-2 col-sm-12">
+            <div class="post">
+                <div class="post-details">
+                    <div class="post-image clearfix"><img alt="" src="images/conservation-ai.jpg" class="img-responsive"></div>
+                    <div class="post-title"><h4 class="title"><a href="#">Conversational AI</a></h4></div>
+                    <div class="post-content"><p>Highly accurate cognitive AI platform like Enterprise Bot brings Conversational AI solutions to help everyday problem solving in typical business organizations. Our Bots for voice, chat and email are context aware and offer language detection, natural language processing, sentiment analysis, intent recognition and enterprise class integration and security capabilities.</p>
+                    </div>
+                </div> 
+                 <hr>               
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+        
+        // --- 1. Enterprise Applications ---
+        $('a[href*="enterprise-applications.html"]').on('click', function(e) {
+            e.preventDefault();
+            loadContent("solutions/enterprise_solutions/enterprise-applications.html");
+        });
+
+        // --- 2. Conversational AI ---
+        $('a[href*="conversational-ai.html"]').on('click', function(e) {
+            e.preventDefault();
+            // Ensure this path matches where you saved the file. 
+            // If you moved it to a folder, update it like the others.
+            loadContent("solutions/conversational-ai.html"); 
+        });
+
+        // --- 3. Smart IOT Solutions ---
+        $('a[href*="smart-iot-solutions.html"]').on('click', function(e) {
+            e.preventDefault();
+            loadContent("solutions/smart-iot-solutions.html");
+        });
+
+        // --- 4. Information Exchange ---
+        $('a[href*="information-exchange.html"]').on('click', function(e) {
+            e.preventDefault();
+            loadContent("solutions/information-exchange.html");
+        });
+        
+
+
+       
+
+
+        // --- Helper Function to Load Content ---
+        function loadContent(url) {
+            var $container = $('[id="dynamic piece"]');
+            
+            // Show a loading text or spinner (optional, but good for user experience)
+            $container.css("opacity", "0.5");
+
+            $container.load(url, function(response, status, xhr) {
+                $container.css("opacity", "1"); // Restore opacity
+                
+                if (status == "error") {
+                    console.log("Error details: " + xhr.status + " " + xhr.statusText);
+                    alert("Error loading content from: " + url + "\n\n1. Check if the file path is correct.\n2. Make sure you are using Live Server.");
+                } else {
+                    // Scroll smoothly to the top of the dynamic section
+                    $('html, body').animate({
+                        scrollTop: $container.offset().top - 100
+                    }, 500);
+                }
+            });
+        }
+
+    });
+</script>
+
+  

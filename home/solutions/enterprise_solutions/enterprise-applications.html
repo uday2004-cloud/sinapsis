@@ -1,0 +1,184 @@
+
+<section class="inner-intro bg bg-fixed bg-overlay-black-70" style="background-image:url(images/bg-3.jpg);">
+  <div class="container">
+     <div class="row intro-title text-center">
+           <div class="col-sm-12">
+        <div class="section-title"><h1 class="title text-white">Enterprise Applications</h1></div>
+           </div>
+           <div class="col-sm-12">
+             <ul class="page-breadcrumb">
+                <li><a href="#"><i class="fa fa-home"></i> Solutions</a> <i class="fa fa-angle-double-right"></i></li>
+                <li><span>Enterprise Applications</span> </li>
+             </ul>
+        </div>
+     </div>
+  </div>
+</section>
+
+<div class="container-fluid bluebar"
+    <div class="row">
+        <div class="col-md-11 col-md-offset-1">
+              <ul>
+    <li class="active"><a href="enterprise-applications.html">Enterprise Applications </a></li>
+    <li ><a href="conversational-ai.html">Conversational AI</a></li>
+    <li ><a href="smart-iot-solutions.html">Smart IOT </a></li>
+    <li ><a href="information-exchange.html">Information Exchange and Collaboration</a></li>
+ </ul>        </div>
+    </div>
+</div>
+  <section class="page-section-ptb pb-60"><div class="container">
+    <div class="row row-eq-height">  
+        <div class="col-md-3 col-sm-12">
+            <div class="post-sidebar">
+            <div class="sidebar-widget">
+              <h4 class="widget-title">Enterprise Applications</h4>
+                <ul>
+                    <li><a href="solutions/enterprise_solutions/nocode-development-platform.html">No Code Development Platform</a></li> 
+                    <li><a href="solutions/enterprise_solutions/robotic-process.html">Robotic Process Automation</a></li>
+                    <li><a href="solutions/enterprise_solutions/microsoft-application-services.html">Microsoft Application Services</a></li>
+                    <li><a href="solutions/enterprise_solutions/mobile-applications.html">Mobile Applications Development</a></li>
+                    <li><a href="solutions/enterprise_solutions/off-the-shelf-solutions.html">Off the shelf Applications</a></li>
+                </ul>
+            </div>                   
+          </div>        </div>
+        <div class="col-md-9 col-sm-12">
+
+        <div id ="dynamic-enterprise">
+
+            <div class="post">
+                <div class="post-details">
+                    <div class="post-image clearfix"><img alt="" src="images/enterprise.jpg" class="img-responsive"></div>
+                    <div class="post-title"><h4 class="title"><a href="#">Enterprise Applications</a></h4></div>
+                    <div class="post-content"><p>Digital Transformation is largely about applications. We help customers develop and modernize applications by using modern, efficient, and flexible platforms like Microsoft .Net, SharePoint, Power BI, Power App, Robotic Process Automation tools and No Code Development Platforms like WEM. These platforms cut down development cycle time while enabling rapid proto typing, testing and deployment.</p>
+                    </div>
+                </div> 
+                 <hr>               
+            </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+   <script type="text/javascript">
+    $(document).ready(function() {
+        
+        // --- 1. no code ---
+        $('a[href*="solutions/enterprise_solutions/nocode-development-platform.html"]').on('click', function(e) {
+            e.preventDefault();
+            loadContent("solutions/enterprise_solutions/nocode-development-platform.html");
+        });
+
+        // --- 2. robotic process ---
+        $('a[href*="solutions/enterprise_solutions/robotic-process.html"]').on('click', function(e) {
+            e.preventDefault();
+            // Ensure this path matches where you saved the file. 
+            // If you moved it to a folder, update it like the others.
+            loadContent("solutions/enterprise_solutions/robotic-process.html"); 
+        });
+
+        // --- 3. microsoft application ---
+        $('a[href*="solutions/enterprise_solutions/microsoft-application-services.html"]').on('click', function(e) {
+            e.preventDefault();
+            loadContent("solutions/enterprise_solutions/microsoft-application-services.html");
+        });
+
+        // --- 4. mobile application ---
+        $('a[href*="solutions/enterprise_solutions/mobile-applications.html"]').on('click', function(e) {
+            e.preventDefault();
+            loadContent("solutions/enterprise_solutions/mobile-applications.html");
+        });
+
+         // --- 5. off the shelf ---
+        $('a[href*="solutions/enterprise_solutions/off-the-shelf-solutions.html"]').on('click', function(e) {
+            e.preventDefault();
+            loadContent("solutions/enterprise_solutions/off-the-shelf-solutions.html");
+        });
+
+        // --- Helper Function to Load Content ---
+        function loadContent(url) {
+            var $container = $('[id="dynamic-enterprise"]');
+            
+            // Show a loading text or spinner (optional, but good for user experience)
+            $container.css("opacity", "0.5");
+
+            $container.load(url, function(response, status, xhr) {
+                $container.css("opacity", "1"); // Restore opacity
+                
+                if (status == "error") {
+                    console.log("Error details: " + xhr.status + " " + xhr.statusText);
+                    alert("Error loading content from: " + url + "\n\n1. Check if the file path is correct.\n2. Make sure you are using Live Server.");
+                } else {
+                    // Scroll smoothly to the top of the dynamic section
+                    $('html, body').animate({
+                        scrollTop: $container.offset().top - 100
+                    }, 500);
+                }
+            });
+        }
+
+    });
+</script>
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        
+        // --- 1. Enterprise Applications ---
+        $('a[href*="enterprise-applications.html"]').on('click', function(e) {
+            e.preventDefault();
+            loadContent("solutions/enterprise_solutions/enterprise-applications.html");
+        });
+
+        // --- 2. Conversational AI ---
+        $('a[href*="conversational-ai.html"]').on('click', function(e) {
+            e.preventDefault();
+            // Ensure this path matches where you saved the file. 
+            // If you moved it to a folder, update it like the others.
+            loadContent("solutions/conversational-ai.html"); 
+        });
+
+        // --- 3. Smart IOT Solutions ---
+        $('a[href*="smart-iot-solutions.html"]').on('click', function(e) {
+            e.preventDefault();
+            loadContent("solutions/smart-iot-solutions.html");
+        });
+
+        // --- 4. Information Exchange ---
+        $('a[href*="information-exchange.html"]').on('click', function(e) {
+            e.preventDefault();
+            loadContent("solutions/information-exchange.html");
+        });
+        
+
+
+       
+
+
+        // --- Helper Function to Load Content ---
+        function loadContent(url) {
+            var $container = $('[id="dynamic piece"]');
+            
+            // Show a loading text or spinner (optional, but good for user experience)
+            $container.css("opacity", "0.5");
+
+            $container.load(url, function(response, status, xhr) {
+                $container.css("opacity", "1"); // Restore opacity
+                
+                if (status == "error") {
+                    console.log("Error details: " + xhr.status + " " + xhr.statusText);
+                    alert("Error loading content from: " + url + "\n\n1. Check if the file path is correct.\n2. Make sure you are using Live Server.");
+                } else {
+                    // Scroll smoothly to the top of the dynamic section
+                    $('html, body').animate({
+                        scrollTop: $container.offset().top - 100
+                    }, 500);
+                }
+            });
+        }
+
+    });
+</script>
+
+  

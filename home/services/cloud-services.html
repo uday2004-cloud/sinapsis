@@ -1,0 +1,147 @@
+
+
+
+<!--=================================
+ header -->
+
+
+<!--=================================
+ banner -->
+
+<section class="inner-intro bg bg-fixed bg-overlay-black-70" style="background-image:url(images/bg-3.jpg);">
+  <div class="container">
+     <div class="row intro-title text-center">
+           <div class="col-sm-12">
+				<div class="section-title"><h1 class="title text-white">Cloud Services</h1></div>
+           </div>
+           <div class="col-sm-12">
+             <ul class="page-breadcrumb">
+                <li><a href="#"><i class="fa fa-home"></i> Solutions</a> <i class="fa fa-angle-double-right"></i></li>
+                <li><span>Cloud Services</span> </li>
+             </ul>
+        </div>
+     </div>
+  </div>
+</section>
+
+<!--=================================
+ banner -->
+
+<!--=================================
+ Page Section -->
+<div class="container-fluid bluebar">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+              <ul>
+    <li class="active"><a href="cloud-services.html">Cloud Services</a></li>
+    <li ><a href="it-outsourcing.html">IT Outsourcing Services </a></li>
+    <li ><a href="professional-services.html">Professional Services</a></li>
+    <li ><a href="support-sla-services.html">Support and SLA Services</a></li>
+ </ul>        </div>
+    </div>
+</div>
+  <section class="page-section-ptb pb-60"><div class="container">
+    <div class="row row-eq-height">  
+    <!--<div class="col-md-4">-->
+    <!--    <div class="post-image clearfix"><img alt="" src="images/enterprise.jpg" class="img-responsive"></div>-->
+    <!--</div>-->
+        <!--<div class="col-md-3 col-sm-12">-->
+        <!--    <div class="post-sidebar">-->
+        <!--    <div class="sidebar-widget">-->
+        <!--      <h4 class="widget-title">Cloud Services</h4>-->
+        <!--        <ul>-->
+        <!--            <li><a href="#">Cloud Transformation</a></li>-->
+        <!--                <li><a href="#">Application Migration </a></li>-->
+        <!--                <li><a href="#">Cloud Consulting </a></li>-->
+        <!--                <li><a href="#">Multi-Cloud Aggregation  </a></li>-->
+        <!--                <li><a href="#">Unified Managed Services </a></li>-->
+        <!--                <li><a href="#">Cloud Migration, Backup, Archival & DR</a></li> -->
+        <!--                <li><a href="#">DevOps as a Service </a></li>-->
+        <!--                <li><a href="#">Cloud Optimisation & Analytics Service </a></li>-->
+        <!--        </ul>-->
+        <!--    </div>                   -->
+        <!--  </div>-->
+        <!-- </div>-->
+        <div class="col-md-8 col-md-offset-2 col-sm-12">
+            <div class="post">
+                <div class="post-details">
+                    <div class="post-image clearfix"><img alt="" src="images/cloud-computing.jpg" class="img-responsive"></div>
+                    <div class="post-title"><h4 class="title"><a href="#">Cloud Services</a></h4></div>
+                    <div class="post-content"><p>IT Infrastructure is unquestionably moving to Cloud. We provide not only Cloud Assessment, Migration Planning and Deployment Services but also 24x7 Monitoring and Managed Services across all popular Public Cloud platforms like Azure, AWS, and Google Cloud to help you derive the most value from your cloud infrastructure. We also provide specialized Cloud Services like Back Up, Disaster Recovery and Archive.</p>
+                    </div>
+                </div> 
+                 <hr>               
+            </div>
+        </div>
+
+        
+      </div>
+    </div>
+  </section>
+  <!--=================================
+   page-section -->
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        
+       
+        
+
+
+        $('a[href*="cloud-services.html"]').on('click', function(e) {
+            e.preventDefault();
+            loadContent("services/cloud-services.html");
+        });
+
+        $('a[href*="it-outsourcing.html"]').on('click', function(e) {
+            e.preventDefault();
+            loadContent("services/it-outsourcing.html");
+        });
+
+
+        $('a[href*="professional-services.html"]').on('click', function(e) {
+            e.preventDefault();
+            loadContent("services/professional-services.html");
+        });
+
+        $('a[href*="support-sla-services.html"]').on('click', function(e) {
+            e.preventDefault();
+            loadContent("services/support-sla-services.html");
+        });
+
+         $('a[href*="contact.html"]').on('click', function(e) {
+            e.preventDefault();
+            loadContent("contact_us/contact.html");
+        });
+
+
+
+
+        // --- Helper Function to Load Content ---
+        function loadContent(url) {
+            var $container = $('[id="dynamic piece"]');
+            
+            // Show a loading text or spinner (optional, but good for user experience)
+            $container.css("opacity", "0.5");
+
+            $container.load(url, function(response, status, xhr) {
+                $container.css("opacity", "1"); // Restore opacity
+                
+                if (status == "error") {
+                    console.log("Error details: " + xhr.status + " " + xhr.statusText);
+                    alert("Error loading content from: " + url + "\n\n1. Check if the file path is correct.\n2. Make sure you are using Live Server.");
+                } else {
+                    // Scroll smoothly to the top of the dynamic section
+                    $('html, body').animate({
+                        scrollTop: $container.offset().top - 100
+                    }, 500);
+                }
+            });
+        }
+
+    });
+</script>
+
+
+<!--=================================
+footer -->

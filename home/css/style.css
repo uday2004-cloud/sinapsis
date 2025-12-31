@@ -1,0 +1,1060 @@
+/* =========================================================
+   MODERN NEON THEME – GLOBAL
+========================================================= */
+
+:root {
+    --clr-primary: #ff3366;
+    --clr-primary-hover: #ff5f8a;
+
+    --clr-bg-body: #050611;
+    --clr-bg-card: #0d0f24;
+    --clr-bg-header: rgba(5, 7, 20, 0.96);
+
+    --clr-text-main: #f8f8ff;
+    --clr-text-dark: #070710;
+    --clr-text-muted: #9fa4c7;
+
+    --transition-standard: 0.3s ease-in-out;
+
+    --card-radius: 18px;
+    --glass-bg: rgba(13, 15, 36, 0.8);
+    --glass-border: rgba(255, 255, 255, 0.06);
+
+    --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.55);
+    --shadow-strong: 0 26px 70px rgba(0, 0, 0, 0.85);
+
+    --font-base: "Inter", "Roboto", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-heading: "Poppins", system-ui, sans-serif;
+}
+
+/* =========================================================
+   BODY & GLOBAL
+========================================================= */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-base);
+    font-size: 16px;
+    color: var(--clr-text-main);
+    line-height: 1.7;
+    background-color: var(--clr-bg-body);
+    background-image:
+        radial-gradient(circle at 0% 0%, rgba(255, 51, 102, 0.06), transparent 55%),
+        radial-gradient(circle at 100% 0%, rgba(0, 255, 204, 0.06), transparent 55%),
+        radial-gradient(circle at 50% 100%, rgba(80, 99, 255, 0.14), transparent 60%);
+    background-attachment: fixed;
+    scroll-behavior: smooth;
+}
+
+a {
+    color: var(--clr-primary);
+    text-decoration: none;
+    transition: color var(--transition-standard), opacity var(--transition-standard);
+}
+
+a:hover {
+    color: var(--clr-primary-hover);
+    opacity: 0.9;
+}
+
+/* =========================================================
+   HEADER – GLASS / STICKY
+========================================================= */
+
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 99;
+    background: linear-gradient(135deg, rgba(5, 7, 20, 0.98), rgba(10, 12, 38, 0.96));
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: var(--shadow-soft);
+    transition: background var(--transition-standard), box-shadow var(--transition-standard), transform 0.25s ease;
+}
+
+#header.defualt,
+#header.clean {
+    background: rgba(5, 7, 20, 0.98);
+    box-shadow: var(--shadow-soft);
+    position: fixed;
+}
+
+/* Shrink on scroll helper (attach via JS: add class .shrink) */
+#header.shrink {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-strong);
+}
+
+.topbar {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    background: linear-gradient(90deg, rgba(255, 51, 102, 0.28), rgba(0, 255, 204, 0.12));
+    padding: 8px 0;
+    font-size: 13px;
+}
+
+.topbar li,
+.topbar li a {
+    color: #f3eded;
+}
+
+.topbar-left li i {
+    padding-right: 5px;
+    color: var(--clr-primary);
+}
+
+.topbar-left li a:hover {
+    color: #f76060 !important;
+    transform: translateY(-2px);
+}
+.topbar-right li i {
+    padding-right: 5px;
+    color: var(--clr-primary);
+    transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.topbar-right a:hover {
+    color: #f76060 !important;
+    transform: translateY(-2px);
+}
+
+/* =========================================================
+   NAV – MODERN
+========================================================= */
+
+.mega-menu .menu-logo {
+    padding: 6px 0;
+}
+
+.mega-menu .menu-logo img {
+    height: 64px;
+    transition: transform var(--transition-standard), filter var(--transition-standard);
+    filter: drop-shadow(0 0 12px rgba(255, 51, 102, 0.5));
+}
+
+.mega-menu .menu-logo img:hover {
+    transform: translateY(-2px) scale(1.02);
+}
+
+/* NAV LINKS */
+#header.mega-menu .menu-links > li > a,
+.mega-menu .menu-links > li > a {
+    line-height: 70px;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    color: #e5e7ff !important;
+    position: relative;
+    padding: 0 18px;
+    transition: color var(--transition-standard), transform 0.2s ease;
+}
+
+#header.mega-menu .menu-links > li > a::after,
+.mega-menu .menu-links > li > a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 18px;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #ff3366, #00ffcc);
+    border-radius: 999px;
+    transform: translateX(-50%);
+    transition: width 0.25s ease;
+}
+
+#header.mega-menu .menu-links > li > a:hover,
+.mega-menu .menu-links > li > a:hover,
+.mega-menu .menu-links > li.active > a {
+    color: #ffffff !important;
+    transform: translateY(-1px);
+}
+
+#header.mega-menu .menu-links > li > a:hover::after,
+.mega-menu .menu-links > li > a:hover::after,
+.mega-menu .menu-links > li.active > a::after {
+    width: 70%;
+}
+
+/* Dropdowns */
+.mega-menu .menu-links > li.active .drop-down-multilevel a,
+.mega-menu .menu-links > li.active .drop-down a {
+    color: #d5d8ff;
+}
+
+.mega-menu .menu-links > li.active .drop-down-multilevel a:hover,
+.mega-menu .menu-links > li.active .drop-down li.active a {
+    color: var(--clr-primary);
+}
+
+/* =========================================================
+   HERO / BANNER
+========================================================= */
+
+.rev-slider {
+    position: relative;
+    margin-top: 110px; /* offset fixed header */
+}
+
+#video-background {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    filter: saturate(1.2) contrast(1.05) brightness(0.9);
+}
+
+.slider-text {
+    width: 100%;
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    text-align: center;
+    color: #ffffff;
+    padding: 0 16px;
+}
+
+.slider-text h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(2.6rem, 4vw, 3.8rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 14px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-shadow: 0 24px 60px rgba(0, 0, 0, 0.9);
+}
+
+.slider-text .title {
+    margin-bottom: 20px;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: rgba(255, 255, 255, 0.78);
+}
+
+.slider-text p {
+    max-width: 680px;
+    margin: 0 auto 26px;
+    font-size: 15px;
+    color: rgba(232, 234, 255, 0.92);
+}
+
+/* =========================================================
+   3D BUTTONS – GLOBAL
+========================================================= */
+
+.button,
+.apply-btn {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 0.16em;
+    padding: 13px 32px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #ff3366, #ff8a3d);
+    color: #0b0b16;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    position: relative;
+    box-shadow:
+        0 18px 35px rgba(255, 51, 102, 0.45),
+        0 0 0 1px rgba(255, 255, 255, 0.08);
+    transform: translateY(0) translateZ(0);
+    transition:
+        transform 0.16s ease-out,
+        box-shadow 0.16s ease-out,
+        background 0.26s ease-out,
+        color 0.26s ease-out;
+}
+
+.button::before,
+.apply-btn::before {
+    content: "";
+    position: absolute;
+    inset: 2px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.16), transparent);
+    opacity: 0.65;
+    pointer-events: none;
+}
+
+.button:hover,
+.apply-btn:hover {
+    transform: translateY(-3px) translateZ(0);
+    box-shadow:
+        0 22px 45px rgba(255, 51, 102, 0.65),
+        0 0 0 1px rgba(255, 255, 255, 0.16);
+    color: #050510;
+}
+
+.button:active,
+.apply-btn:active {
+    transform: translateY(1px) translateZ(0);
+    box-shadow:
+        0 12px 26px rgba(255, 51, 102, 0.45),
+        0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+/* Small / secondary variants (if used via extra classes) */
+.button.small,
+.apply-btn.small {
+    padding: 8px 20px;
+    font-size: 11px;
+}
+
+/* =========================================================
+   CARDS, SECTIONS, AND HOVER IMAGES
+========================================================= */
+
+/* Generic card look for blocks like services, blog posts, etc. */
+
+.service .service-block,
+.sidebar-widget,.about h4,
+.about.pro-deta .about-details,
+.comment-list .comments-media,
+.footer .footer-box,
+.job-apply {
+    background: var(--glass-bg);
+    border-radius: var(--card-radius);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-soft);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease;
+}
+
+/* Elevation on hover */
+.service .service-block:hover,
+.sidebar-widget:hover,.about h4:hover,
+.about.pro-deta .about-details:hover,
+.comment-list .comments-media:hover,
+.footer .footer-box:hover,
+.job-apply:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-strong);
+    border-color: rgba(255, 51, 102, 0.5);
+    background: rgba(13, 15, 36, 0.94);
+}
+
+/* ----------------------------------
+   HOVER IMAGE ON CARD (PORTFOLIO / BLOG)
+----------------------------------- */
+
+/* Assuming cards have an image inside (like .project-info or .post-image) */
+
+.project-info,
+.post,
+.masonry-block .grid-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--card-radius);
+}
+
+/* dim base image */
+.project-info img,
+.post .post-image img,
+.masonry-block .grid-item img {
+    width: 100%;
+    display: block;
+    transition: transform 0.4s ease, filter 0.4s ease;
+    transform-origin: center center;
+}
+
+/* overlay container for hover preview */
+.project-info::before,
+.post .post-image::before,
+.masonry-block .grid-item::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 20% 0, rgba(255, 51, 102, 0.35), transparent 55%),
+                radial-gradient(circle at 80% 100%, rgba(0, 255, 204, 0.35), transparent 55%);
+    mix-blend-mode: screen;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+}
+
+/* hover effects */
+.project-info:hover img,
+.post .post-image:hover img,
+.masonry-block .grid-item:hover img {
+    transform: scale(1.07);
+    filter: saturate(1.18) contrast(1.1) brightness(1.02);
+}
+
+.project-info:hover::before,
+.post .post-image:hover::before,
+.masonry-block .grid-item:hover::before {
+    opacity: 1;
+}
+
+/* If you have overlay text (.overlay-content) keep it centered and modern */
+
+.overlay-content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+    text-align: center;
+    color: #ffffff;
+    background: linear-gradient(
+        145deg,
+        rgba(5, 7, 20, 0.45),
+        rgba(255, 51, 102, 0.18)
+    );
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.project-info:hover .overlay-content,
+.masonry-block .grid-item:hover .overlay-content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================================================
+   SECTION TITLES
+========================================================= */
+
+.section-title .title {
+    position: relative;
+    font-family: var(--font-heading);
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    color: #f7f7ff;
+}
+
+.section-title .title::before,
+.section-title .title::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 999px;
+    background: linear-gradient(90deg, #ff3366, #00ffcc);
+}
+
+.section-title .title::before {
+    bottom: -10px;
+    width: 64px;
+    height: 2px;
+    opacity: 0.8;
+}
+
+.section-title .title::after {
+    bottom: -14px;
+    width: 34px;
+    height: 2px;
+    opacity: 0.5;
+}
+
+/* =========================================================
+   INNER INTRO / BREADCRUMB
+========================================================= */
+
+.inner-intro {
+    height: 260px;
+    position: relative;
+    display: block;
+    background: radial-gradient(circle at 0% 0%, rgba(255, 51, 102, 0.3), transparent 55%),
+                radial-gradient(circle at 100% 100%, rgba(0, 255, 204, 0.18), transparent 55%),
+                linear-gradient(145deg, #050611, #0d0f24);
+    overflow: hidden;
+}
+
+.inner-intro::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(120deg, rgba(255, 255, 255, 0.06) 0, transparent 50%, rgba(255, 255, 255, 0.08) 100%);
+    mix-blend-mode: soft-light;
+    opacity: 0.6;
+}
+
+.inner-intro .container {
+    display: table;
+    height: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+.intro-title {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.intro-title .section-title .title {
+    font-size: 30px;
+    line-height: 1.3;
+}
+
+/* breadcrumb */
+ul.page-breadcrumb li {
+    color: #f1f1ff;
+}
+
+ul.page-breadcrumb li span {
+    color: var(--clr-primary);
+}
+
+/* =========================================================
+   SIDEBAR AS HORIZONTAL BUTTONS
+========================================================= */
+
+.service .sidebar ul {
+    padding-left: 0;
+    margin: 0 0 28px;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.service .sidebar ul li {
+    flex-grow: 1;
+}
+
+.service .sidebar ul li a {
+    display: block;
+    text-align: center;
+    padding: 12px 18px;
+    background: rgba(9, 11, 32, 0.9);
+    color: #e5e7ff;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.service .sidebar ul li a:hover,
+.service .sidebar ul li a.active {
+    background: linear-gradient(135deg, #ff3366, #ff8a3d);
+    color: #050510;
+    transform: translateY(-3px);
+    box-shadow: 0 18px 35px rgba(255, 51, 102, 0.5);
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+/* =========================================================
+   CONTACT SECTION – CARDS & ICONS
+========================================================= */
+
+.contact-sec .contact-wrapper {
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.contact-sec .address-block {
+    flex: 1;
+    min-width: 230px;
+    text-align: center;
+    padding: 28px 24px;
+}
+
+.contact-sec .address-block .glyph-icon {
+    position: static;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 14px;
+    font-size: 32px;
+    width: 64px;
+    height: 64px;
+    border-radius: 999px;
+    background: radial-gradient(circle at 30% 0, rgba(255, 255, 255, 0.28), transparent 60%),
+                linear-gradient(145deg, #ff3366, #ff8a3d);
+    color: #050510;
+    box-shadow: 0 14px 30px rgba(255, 51, 102, 0.5);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+}
+
+.address-block:hover .glyph-icon {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 42px rgba(255, 51, 102, 0.7);
+    filter: saturate(1.2);
+}
+
+/* =========================================================
+   FOOTER – MODERN DARK
+========================================================= */
+
+.footer {
+    background: radial-gradient(circle at 0% 0%, #181a31, #050611 55%);
+    color: #aeb3d4;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.footer::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 10% 0, rgba(255, 51, 102, 0.4), transparent 60%),
+        radial-gradient(circle at 90% 100%, rgba(0, 255, 204, 0.3), transparent 60%);
+    opacity: 0.12;
+    pointer-events: none;
+}
+
+.footer .title {
+    position: relative;
+    color: #ffffff;
+    margin-bottom: 26px;
+    font-weight: 600;
+}
+
+/* footer social */
+.footer-social ul li a {
+    background: transparent;
+    border-radius: 999px;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    color: #c3c7f0;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+}
+
+.footer-social ul li a:hover {
+    background: linear-gradient(135deg, #ff3366, #ff8a3d);
+    color: #050510;
+    transform: translateY(-3px);
+    box-shadow: 0 14px 28px rgba(255, 51, 102, 0.55);
+}
+
+/* footer box call-to-action */
+.footer .footer-box .box-link a {
+    border-radius: 999px;
+}
+
+/* copyright */
+.footer .copyright {
+    background: rgba(2, 2, 8, 0.96);
+    padding: 18px 0;
+    font-size: 13px;
+    color: #8f94c2;
+}
+
+/* =========================================================
+   PAGINATION – MODERN
+========================================================= */
+
+.pagination>li>a,
+.pagination>li>span {
+    padding: 10px 18px;
+    border-width: 1px;
+    border-color: rgba(255, 255, 255, 0.14);
+    color: #e5e7ff;
+    margin: 0 4px;
+    border-radius: 999px;
+    background: rgba(5, 7, 20, 0.9);
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.2s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.pagination>li.active>a,
+.pagination>li>a:hover,
+.pagination>li>span:hover {
+    background: linear-gradient(135deg, #ff3366, #ff8a3d);
+    color: #050510;
+    border-color: rgba(255, 255, 255, 0.16);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(255, 51, 102, 0.6);
+}
+
+/* =========================================================
+   BACK TO TOP – NEON PILL
+========================================================= */
+
+#back-to-top .top {
+    z-index: 999;
+    position: fixed;
+    right: 22px;
+    bottom: 28px;
+    color: #050510;
+    background: linear-gradient(135deg, #ff3366, #ff8a3d);
+    border-radius: 999px;
+    border: none;
+    width: 44px;
+    height: 44px;
+    text-align: center;
+    line-height: 44px;
+    font-size: 16px;
+    box-shadow: 0 16px 34px rgba(255, 51, 102, 0.65);
+    transition: transform 0.22s ease, box-shadow 0.22s ease, opacity 0.22s ease;
+    opacity: 0.92;
+}
+
+#back-to-top .top:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 44px rgba(255, 51, 102, 0.8);
+    opacity: 1;
+}
+
+/* =========================================================
+   RESPONSIVE TWEAKS (KEEPING YOUR BREAKPOINTS)
+========================================================= */
+
+@media screen and (max-width: 992px) {
+    .mega-menu .menu-logo img {
+        height: 56px;
+    }
+
+    #header,
+    #header.defualt,
+    #header.clean {
+        position: relative;
+    }
+
+    .rev-slider {
+        margin-top: 0;
+    }
+
+    #header.mega-menu .menu-links > li > a,
+    .mega-menu .menu-links > li > a {
+        line-height: 44px;
+        padding: 10px 18px;
+    }
+
+    .service .sidebar ul {
+        flex-direction: column;
+    }
+
+    .service .sidebar ul li a {
+        text-align: left;
+        border-radius: 12px;
+    }
+
+    .slider-text {
+        top: 50%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .slider-text h1 {
+        font-size: 2.1rem;
+    }
+
+    .inner-intro {
+        height: 210px;
+    }
+
+    .contact-sec .contact-wrapper {
+        flex-direction: column;
+    }
+
+    #back-to-top .top {
+        right: 16px;
+        bottom: 20px;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+    }
+}
+
+@media screen and (max-width: 479px) {
+    .slider-text h1 {
+        font-size: 1.8rem;
+    }
+
+    .button,
+    .apply-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+
+
+/* =========================================================
+   BLUEBAR – SUB NAV / PILLS
+========================================================= */
+
+.container-fluid.bluebar {
+    background: linear-gradient(90deg, rgba(5, 7, 20, 0.96), rgba(13, 15, 36, 0.96));
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 10px 0;
+    position: relative;
+    z-index: 5;
+}
+
+/* reset list */
+.container-fluid.bluebar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 10px;
+    align-items: center;
+}
+
+/* each li behaves like nav item */
+.container-fluid.bluebar ul li {
+    position: relative;
+}
+
+/* pill / button links */
+.container-fluid.bluebar ul li a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 22px;
+    font-family: var(--font-heading);
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #e5e7ff;
+    white-space: nowrap;
+
+    background: rgba(9, 11, 32, 0.95);
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.6);
+    transition:
+        background 0.22s ease,
+        color 0.22s ease,
+        box-shadow 0.22s ease,
+        transform 0.18s ease,
+        border-color 0.22s ease;
+}
+
+/* active state (li.active) */
+.container-fluid.bluebar ul li.active a {
+    background: linear-gradient(135deg, #ff3366, #ff8a3d);
+    color: #050510;
+    border-color: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 16px 34px rgba(255, 51, 102, 0.65);
+}
+
+/* hover and focus */
+.container-fluid.bluebar ul li a:hover,
+.container-fluid.bluebar ul li a:focus {
+    background: linear-gradient(135deg, #ff3366, #ff8a3d);
+    color: #050510;
+    border-color: rgba(255, 255, 255, 0.18);
+    transform: translateY(-3px);
+    box-shadow: 0 16px 34px rgba(255, 51, 102, 0.65);
+}
+
+/* subtle glow ring */
+.container-fluid.bluebar ul li a::after {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+}
+
+.container-fluid.bluebar ul li.active a::after,
+.container-fluid.bluebar ul li a:hover::after {
+    opacity: 1;
+}
+
+/* RESPONSIVE: stack on small screens */
+@media screen and (max-width: 767px) {
+    .container-fluid.bluebar {
+        padding: 8px 0;
+    }
+
+    .container-fluid.bluebar ul {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .container-fluid.bluebar ul li {
+        flex: 1 1 100%;
+    }
+
+    .container-fluid.bluebar ul li a {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+
+
+/* =========================================================
+   ENTERPRISE SIDEBAR – VERTICAL NEON LIST
+========================================================= */
+
+/* overall sidebar card is already styled by .sidebar-widget in your main CSS */
+/* here we mainly restyle the inner <ul> and links */
+
+.post-sidebar {
+    height: 100%;
+}
+
+/* reset list */
+.post-sidebar .sidebar-widget ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* space between items */
+.post-sidebar .sidebar-widget ul li {
+    margin: 0 0 10px;
+}
+
+/* vertical button links */
+.post-sidebar .sidebar-widget ul li a {
+    display: block;
+    width: 100%;
+    padding: 11px 16px;
+    font-family: var(--font-heading);
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    color: #e5e7ff;
+    background: rgba(9, 11, 32, 0.96);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.65);
+    position: relative;
+    overflow: hidden;
+
+    transition:
+        background 0.22s ease,
+        color 0.22s ease,
+        box-shadow 0.22s ease,
+        transform 0.16s ease,
+        border-color 0.22s ease;
+}
+
+/* hover / focus */
+.post-sidebar .sidebar-widget ul li a:hover,
+.post-sidebar .sidebar-widget ul li a:focus {
+    background: linear-gradient(135deg, #ff3366, #ff8a3d);
+    color: #050510;
+    border-color: rgba(255, 255, 255, 0.16);
+    transform: translateY(-3px);
+    box-shadow: 0 16px 34px rgba(255, 51, 102, 0.65);
+}
+
+/* active state (if you add .active on li) */
+.post-sidebar .sidebar-widget ul li.active a {
+    background: linear-gradient(135deg, #ff3366, #ff8a3d);
+    color: #050510;
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 18px 36px rgba(255, 51, 102, 0.7);
+}
+
+/* subtle glow overlay */
+.post-sidebar .sidebar-widget ul li a::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 0% 0%, rgba(255, 255, 255, 0.18), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(0, 255, 204, 0.12), transparent 55%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+}
+
+.post-sidebar .sidebar-widget ul li a:hover::after,
+.post-sidebar .sidebar-widget ul li.active a::after {
+    opacity: 1;
+}
+
+/* small-screen: give breathing room */
+@media screen and (max-width: 767px) {
+    .post-sidebar {
+    margin-bottom: 20px;
+    }
+}
+.post-title h4{
+    
+    color: rgb(255, 255, 255);
+    text-decoration: underline; 
+    text-decoration-color: rgba(240, 138, 5, 0.87); 
+    text-underline-position: auto; 
+    text-underline-offset:6px;
+}
+
+.about-details h5{
+    color: rgb(255, 255, 255);
+    
+}
+
+.sidebar-widget h4{
+    
+    color: rgb(255, 255, 255);
+    text-decoration: underline; 
+    text-decoration-color: rgba(240, 138, 5, 0.87); 
+    text-underline-position: auto; 
+    text-underline-offset:6px;
+}
+
+.address-block h3{
+    color:white;
+}
+
+.address-block a{
+     color: rgb(255, 255, 255);
+    text-decoration: underline; 
+    text-decoration-color: rgba(240, 138, 5, 0.87); 
+    text-underline-position: auto; 
+    text-underline-offset:6px;
+}
+.address-block a:hover{
+     color: rgb(248, 83, 83);
+    
+}
