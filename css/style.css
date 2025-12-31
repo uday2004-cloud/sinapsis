@@ -1058,3 +1058,43 @@ ul.page-breadcrumb li span {
      color: rgb(248, 83, 83);
     
 }
+
+/* --- FIX NAV VISIBILITY ON MOBILE --- */
+@media screen and (max-width: 992px) {
+    /* keep header fixed but smaller if you want */
+    #header,
+    #header.defualt,
+    #header.clean {
+        position: fixed; /* or relative if you prefer */
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+
+    /* force menu links to show and stack */
+    .mega-menu .menu-links {
+        display: flex !important;   /* override any display:none */
+        flex-direction: column;     /* vertical list on mobile */
+        position: static !important;
+        width: 100%;
+        background: rgba(5, 7, 20, 0.98);
+        margin: 0;
+        padding: 8px 0;
+    }
+
+    .mega-menu .menu-links > li {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 0;
+    }
+
+    .mega-menu .menu-links > li:last-child {
+        border-bottom: none;
+    }
+
+    #header.mega-menu .menu-links > li > a,
+    .mega-menu .menu-links > li > a {
+        line-height: 42px;
+        padding: 10px 18px;
+    }
+}
+
