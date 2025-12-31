@@ -1145,23 +1145,32 @@ ul.page-breadcrumb li span {
         background: #201e1f;
         padding: 10px;
         float: right !important;
-        margin: 12px 0;
+        margin: 12px 0 12px auto !important; /* Push fully right */
+        clear: both; /* Clear any prior floats */
+        position: relative;
+        right: 0;
     }
     .mobile-container i {
         color: #fff;
     }
     .bluebar ul li a {
         color: #000;
-        float : left;
-        
+        float: left;
         width: calc(90%/2);
         text-align: center;
         margin-bottom: 10px;
         border: 1px solid #ccc;
+        clear: left; /* Prevent overlap */
     }
     .intro-title {
         vertical-align: top;
         padding-top: 20px;
+    }
+    /* Add clearfix to parent container */
+    .bluebar::after, .header-container::after { /* Adjust .header-container to your actual parent class */
+        content: "";
+        display: table;
+        clear: both;
     }
 }
 
@@ -1171,12 +1180,17 @@ ul.page-breadcrumb li span {
     .bluebar {
         position: inherit;
         margin-top: 0px;
+        overflow: hidden; /* Contain floats */
+    }
+    .mobile-container {
+        float: right !important;
+        margin: 12px auto 12px 0 !important; /* Reaffirm right position */
+        clear: both;
     }
     .bluebar ul li a {
         color: #000;
         float: left;
         width: calc(90%/1);
         text-align: center;
-        /*border-bottom:1px solid rgba(255,255,255,0.3);*/
     }
 }
